@@ -1,0 +1,9 @@
+- All work is in Jupyter notebooks (.ipynb), one per phase, inside the matching phase folder.
+- Dataset lives in data/Track_D_Mental_Health/ — 7 CSV files named Mental_Health_Survey_2016.csv through Mental_Health_Survey_2022.csv.
+- Merge all 7 CSVs into one master DataFrame at the start of every notebook using pd.concat. Add a 'year' column before merging.
+- Variable naming: short natural names (i, j, n, cnt, arr, df, X, y). No verbose names.
+- No sklearn for clustering or neural net implementations — all from scratch with numpy.
+- Every notebook must be runnable top to bottom with zero errors.
+- Each phase ends with a markdown cell titled "## Phase N Reflection" answering all reflection questions from the lab manual.
+- After each phase notebook is complete and verified, commit to git with message: feat(phaseN): [short description]
+- Spawn no more than 2 parallel subagents.
