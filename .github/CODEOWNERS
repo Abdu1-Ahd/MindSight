@@ -3,22 +3,22 @@
 # Replace @<username> with the actual GitHub username or team handle.
 
 # CI/CD and GitHub configuration — require infra review on all pipeline changes
-.github/                    @<username>
-.github/workflows/          @<username>
+.github/                    @Abdu1-Ahd
+.github/workflows/          @Abdu1-Ahd
 
 # Phase notebooks and generators
-phase1/                     @<username>
-phase2/                     @<username>
-phase3/                     @<username>
-phase4/                     @<username>
-phase5/                     @<username>
-scripts/                    @<username>
+phase1/                     @Abdu1-Ahd
+phase2/                     @Abdu1-Ahd
+phase3/                     @Abdu1-Ahd
+phase4/                     @Abdu1-Ahd
+phase5/                     @Abdu1-Ahd
+scripts/                    @Abdu1-Ahd
 
 # Documentation
-docs/                       @<username>
-README.md                   @<username>
-CHANGELOG.md                @<username>
-DEVELOPERS.md               @<username>
+docs/                       @Abdu1-Ahd
+README.md                   @Abdu1-Ahd
+CHANGELOG.md                @Abdu1-Ahd
+DEVELOPERS.md               @Abdu1-Ahd
 
 # Data files — changes here affect all downstream phases
-data/                       @<username>
+data/                       @Abdu1-Ahd

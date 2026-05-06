@@ -24,7 +24,7 @@ Internal engineering reference for local setup, execution, and architectural con
 **1. Clone the repository:**
 
 ```bash
-git clone https://github.com/<username>/MindSight.git
+git clone https://github.com/Abdu1-Ahd/MindSight.git
 cd MindSight
 ```
 

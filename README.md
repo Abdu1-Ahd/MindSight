@@ -58,7 +58,7 @@ No high-level ML frameworks (scikit-learn, TensorFlow, PyTorch) are used at any 
 **Clone the repository:**
 
 ```bash
-git clone https://github.com/<username>/MindSight.git
+git clone https://github.com/Abdu1-Ahd/MindSight.git
 cd MindSight
 ```
 
