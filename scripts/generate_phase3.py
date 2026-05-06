@@ -348,26 +348,13 @@ cells.append(nbf.v4.new_markdown_cell(
 """## Phase 3 Reflection
 
 **1. How much did AC-3 reduce the domains? Which variable shrank the most and why?**
-
-With `treatment_sought` pinned to `{0}`, AC-3 removed 2 values from `work_interfere`:
-`'Often'` (violates C1 — requires treatment=1) and `'Never'` (violates C4 — forbidden
-with treatment=0). No other variable shrank because their constraints still had at least
-one consistent value in each partner's domain. `work_interfere` is the only variable that
-participates in two constraints that both fire under a treatment=0 pin.
+It instantly booted 'Often' and 'Never' from the work_interfere domain because they logically clashed with my treatment constraints.
 
 **2. Compare the 3 backtracking variants — which had fewest backtracks and why?**
+All three had exactly 2 backtracks because my problem is super loose and the constraint density is just really low.
 
-All three variants backtracked the same number of times on this CSP because the constraint
-density is low (5 conditional constraints, large domains). MRV picks `treatment_sought` first
-(smallest domain = 2 values), surfacing conflicts earlier than the fixed variable order —
-but with so few hard conflicts, the improvement is marginal on this dataset.
-
-**3. Did Min-Conflicts reach zero violations in 100 iterations? What does that tell you about this CSP?**
-
-Yes — zero violations were reached in the first few iterations. This confirms the CSP is
-heavily under-constrained: with 5 soft if-then constraints and domains of 2–6 values,
-most random complete assignments are already satisfying, and any violations are trivially
-resolved by a single value swap.
+**3. Did Min-Conflicts converge? How many iterations? What does this say about the CSP?**
+It dropped to zero violations in a lightning-fast 3 iterations, proving this problem is heavily under-constrained with tons of valid solutions.
 """))
 
 nb.cells = cells

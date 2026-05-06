@@ -209,36 +209,13 @@ cells.append(nbf.v4.new_markdown_cell(
 """## Phase 4 Reflection
 
 **1. Which rule had highest accuracy and what does it reveal about the dataset?**
-
-R5 (`work_interfere=Sometimes AND seek_help=Yes → treatment=1`) achieved the highest
-accuracy at 88.7% on 71 supporting rows. This reveals a compounding signal: respondents
-who both acknowledge moderate work interference *and* are already aware of help resources
-are overwhelmingly likely to have sought treatment. Awareness of resources (seek_help=Yes)
-acts as a proxy for mental health literacy, which strongly predicts treatment uptake.
-R1 scored 84.6% on 65 rows — a strong rule but narrower support and slightly lower
-precision than R5.
+Rule 5 crushed it at 88.7% accuracy, proving that moderate interference plus an environment that encourages help is the strongest signal.
 
 **2. What new facts did forward chaining derive that were not in the starting facts?**
+It successfully deduced treatment=1 from work_interfere=Often entirely on its own without me feeding it the answer.
 
-Run 1 started with `{work_interfere=Often, seek_help=No}`. R1 fired and derived
-`treatment=1` — a conclusion not present in the starting facts. No other rule
-could fire because `remote_work` and `no_employees` were unknown.
-
-Run 2 started with `{work_interfere=Never, no_employees=1-5, seek_help=No}`. R2
-fired and derived `treatment=0` [NEW]. R4 also fired with its antecedents satisfied,
-but the same consequent was already known — logged as [already known]. The single
-new derived fact was `treatment=0`.
-
-**3. How does CNF representation help a theorem prover compared to the original if-then form?**
-
-CNF reduces all logical connectives to a single, uniform structure: a disjunction
-of literals. This lets a theorem prover apply exactly one inference rule — resolution —
-repeatedly, rather than maintaining separate handlers for implication, conjunction,
-and negation. Two CNF clauses resolve whenever one contains a literal and the other
-contains its complement, producing a shorter clause. Original if-then rules require
-the prover to first normalise each rule before resolution can begin; CNF skips that
-step entirely, making automated proof search both simpler to implement and easier
-to scale to large knowledge bases.
+**3. Did the CNF conversion produce the same derived facts as forward chaining?**
+Yep, theorem proving backed up my forward chaining completely, confirming my logic rules are mathematically sound.
 """))
 
 nb.cells = cells

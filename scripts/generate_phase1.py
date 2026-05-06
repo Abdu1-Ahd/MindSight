@@ -163,31 +163,16 @@ cells.append(nbf.v4.new_markdown_cell(
 """## Phase 1 Reflection
 
 **1. What is the shape of the merged dataset and how many features does it contain?**
-
-The merged dataset has shape (3433, 193). This means 3,433 survey responses across
-193 columns, of which one is the target variable `treatment` and one is the added `year`
-column. The remaining 191 columns are potential features from the 7-year OSMI survey.
+My dataset is (3433, 193), giving me 191 potential features after sorting out the year and target columns.
 
 **2. What is the class distribution of the target variable?**
-
-The `treatment` column has 1,998 rows with value 1 (sought treatment) and 1,435 rows
-with value 0 (did not seek treatment). This gives a positive class rate of approximately
-58.2%, which is a moderately imbalanced but workable distribution.
+It splits roughly 58/42 (1998 getting help, 1435 not), so it's balanced enough that I didn't need to oversample.
 
 **3. How many nodes and edges does the work_interfere–treatment graph contain?**
-
-The graph has 7 nodes (5 unique work_interfere values plus 2 treatment values: 0 and 1)
-and 10 edges — one for each co-occurring (work_interfere, treatment) pair observed in
-the dataset. Every work_interfere value connects to both treatment outcomes, confirming
-that no single interference level uniquely determines treatment outcome.
+I built a tiny graph with just 7 nodes and 10 edges linking interference levels to treatment outcomes.
 
 **4. What does the high missing value rate in most columns tell you about this dataset?**
-
-Many columns have >50% missing values because different survey years added or removed
-questions — columns introduced in 2019 are empty for all 2016–2018 rows. This structural
-sparsity means naive imputation would introduce significant noise. The preprocessing
-strategy of dropping columns with >50% missingness is therefore justified: retaining
-them would pollute the feature space with mostly-imputed values that carry no signal.
+It's a huge mess of changing survey questions over 7 years, so I just dropped the sparse columns instead of imputing junk.
 """))
 
 # ── Write notebook ────────────────────────────────────────────────────────────

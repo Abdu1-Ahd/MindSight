@@ -381,45 +381,14 @@ print(cmp.to_string(index=False))
 cells.append(nbf.v4.new_markdown_cell(
 """## Phase 5 Reflection
 
-**1. What were the final test accuracies for Perceptron, Delta Rule, and MLP?
-   Which performed best and why?**
+**1. What were the final test accuracies for Perceptron, Delta Rule, and MLP? Which performed best and why?**
+The Delta Rule smoked the rest with an 84.1% accuracy, proving a simple linear boundary works way better here than a complex 71% MLP.
 
-Perceptron: 66.67%, Delta Rule: 84.13%, MLP: 71.32%.
-Delta Rule performed best despite being a linear model. It uses continuous gradient
-descent on MSE with batch updates, which converges more reliably on this low-signal
-dataset of 18 ordinal features. The Perceptron's binary weight updates are too coarse
-for a dataset where the decision boundary is not cleanly linearly separable. The MLP
-outperformed the Perceptron by learning non-linear combinations of features, but was
-capped by 200 epochs; with more training it would likely exceed Delta Rule accuracy.
+**2. How many iterations did K-Means and K-Medoid take to converge? Which had lower within-cluster sum of distances?**
+K-Means took 28 to K-Medoid's 2, but K-Means ended up with a much tighter clustering distance in the end.
 
-**2. How many iterations did K-Means and K-Medoid take to converge?
-   Which had lower within-cluster sum of distances?**
-
-K-Means converged in 28 iterations; K-Medoid converged in 2 iterations.
-K-Means WCSD: 10941.07 vs K-Medoid WCSD: 12554.08 — K-Means is lower.
-K-Means achieves tighter clusters because centroids are means that minimize total
-squared distance by definition. K-Medoid converges faster (medoids jump directly
-to an existing data point) but cannot match the geometric optimality of the centroid.
-
-**3. Did the MLP loss consistently decrease over 200 epochs?
-   What does the curve shape tell you about the learning rate?**
-
-Yes — the MLP loss decreased consistently from 0.7975 (epoch 10) to 0.5776 (epoch 200)
-with no oscillation. The smooth, steady descent indicates that LR=0.01 is appropriate
-for this architecture and dataset: large enough to make consistent progress, small enough
-not to overshoot. The slow early phase (epochs 1–50) reflects the time needed for
-He-initialized weights to align to the data manifold.
-
-**4. Why does K-Means purity not equal classification accuracy,
-   and what does it measure instead?**
-
-Both clusters in this run have purity = 0.5805, which equals the majority class
-proportion. This reveals that K-Means found no discriminative cluster structure — both
-clusters are dominated by the same majority class (treated=1 at 58%). Purity measures
-intra-cluster label homogeneity: for each cluster, it counts the fraction belonging to
-the most common label. It does not penalize trivially assigning all points to one cluster.
-Classification accuracy, by contrast, requires matching each point to the correct label,
-penalizing both false positives and false negatives symmetrically.
+**3. What was the purity score of both clustering methods and what does this mean?**
+Both hit exactly 58.05%, which is just the frequency of my majority class—the clusters completely failed to map to the actual treatment variable.
 """))
 
 nb.cells = cells
