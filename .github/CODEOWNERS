@@ -1,0 +1,24 @@
+# CODEOWNERS
+# Syntax: <path pattern> <@owner>
+# Replace @<username> with the actual GitHub username or team handle.
+
+# CI/CD and GitHub configuration — require infra review on all pipeline changes
+.github/                    @<username>
+.github/workflows/          @<username>
+
+# Phase notebooks and generators
+phase1/                     @<username>
+phase2/                     @<username>
+phase3/                     @<username>
+phase4/                     @<username>
+phase5/                     @<username>
+scripts/                    @<username>
+
+# Documentation
+docs/                       @<username>
+README.md                   @<username>
+CHANGELOG.md                @<username>
+DEVELOPERS.md               @<username>
+
+# Data files — changes here affect all downstream phases
+data/                       @<username>

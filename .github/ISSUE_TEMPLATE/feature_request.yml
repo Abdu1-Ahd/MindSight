@@ -1,0 +1,46 @@
+name: Feature Request
+description: Propose a new algorithm, phase extension, or pipeline improvement.
+title: "[feat]: "
+labels: ["type::feature"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Describe the limitation or gap this feature addresses.
+      placeholder: "The MLP in Phase 5 overfits because there is no dropout regularization..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the implementation approach concisely.
+      placeholder: "Add a configurable dropout layer between the hidden and output layers using NumPy masking..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: List other approaches evaluated and why they were rejected.
+      placeholder: "L2 regularization — simpler to implement but does not address neuron co-adaptation..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Affected Phase
+      options:
+        - Phase 1 — Foundation
+        - Phase 2 — Search
+        - Phase 3 — CSP
+        - Phase 4 — Logic
+        - Phase 5 — Machine Learning
+        - Scripts / Infrastructure
+        - Documentation
+    validations:
+      required: true

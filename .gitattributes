@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+# Treat Jupyter notebooks as binary to prevent line-ending corruption
+*.ipynb binary
+
+# Linguist overrides — prevent GitHub from classifying generated notebooks as primary language
+phase1/*.ipynb linguist-generated=true
+phase2/*.ipynb linguist-generated=true
+phase3/*.ipynb linguist-generated=true
+phase4/*.ipynb linguist-generated=true
+phase5/*.ipynb linguist-generated=true
+
+# Mark vendored data files
+data/** linguist-vendored=true

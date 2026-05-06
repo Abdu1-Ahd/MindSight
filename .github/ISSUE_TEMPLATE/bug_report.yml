@@ -1,0 +1,62 @@
+name: Bug Report
+description: Report a reproducible defect in the MindSight pipeline.
+title: "[bug]: "
+labels: ["type::bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the bug clearly and concisely.
+      placeholder: "The pipeline fails with a FileNotFoundError when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps
+      description: Exact steps to reproduce the issue.
+      placeholder: |
+        1. Run `python scripts/run_all.py`
+        2. Observe error in Phase 3 execution
+        3. ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Windows 11
+        - Windows 10
+        - Ubuntu 22.04
+        - Ubuntu 24.04
+        - macOS 14 (Sonoma)
+        - macOS 13 (Ventura)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: python_version
+    attributes:
+      label: Python Version
+      options:
+        - "3.13"
+        - "3.12"
+        - "3.11"
+        - "3.10"
+        - "3.9 (unsupported)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Output / Stack Trace
+      description: Paste the full terminal output or traceback.
+      render: shell
+    validations:
+      required: true

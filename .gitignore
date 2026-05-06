@@ -1,7 +1,23 @@
 __pycache__/
 *.pyc
+*.pyo
 .ipynb_checkpoints/
+
+# Environment files — never commit secrets
 .env
+.env.local
+.env.*.local
+
+# Build artifacts
 *.egg-info/
 dist/
+build/
+
+# OS artifacts
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
