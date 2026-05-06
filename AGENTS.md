@@ -7,3 +7,6 @@
 - Each phase ends with a markdown cell titled "## Phase N Reflection" answering all reflection questions from the lab manual.
 - After each phase notebook is complete and verified, commit to git with message: feat(phaseN): [short description]
 - Spawn no more than 2 parallel subagents.
+- USE skills from `C:\Users\zawia\.antigravity\University\skills`.
+  - APPLY `humanizer.skill` before finalizing text/reports.
+  - APPLY human code style when writing/refactoring code.
