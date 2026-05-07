@@ -8,6 +8,9 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Removed
+- `SKILL.md` — internal AI agent context file removed from public repository.
+
 ---
 
 ## [1.1.0] - 2026-05-07
@@ -26,7 +29,6 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 - **README.md:** Complete rewrite. Surfaces actual benchmark numbers, dataset description, architecture overview, design decisions, limitations, and reproducibility steps.
 - **DEVELOPERS.md:** Updated with references to new documentation, test suite, and linting.
-- **SKILL.md:** Fixed inaccuracies (z-score not min-max, 2-hidden-layer MLP not 1-layer).
 - **requirements.txt:** Pinned dependency version ranges. Removed `scikit-learn` and `notebook`.
 
 ### Removed
