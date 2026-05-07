@@ -131,7 +131,7 @@ MindSight/
 ├── data/
 │   └── Track_D_Mental_Health/     # Seven OSMI survey CSV files (2016–2022) + SQLite DB
 ├── docs/
-│   └── MindSight_Report.docx      # Formal research report submitted with coursework
+│   └── MindSight_Report.docx      # Formal research report detailing findings
 ├── phase1/
 │   └── phase1_foundation.ipynb    # Data loading, merging, EDA, graph construction
 ├── phase2/
@@ -168,22 +168,4 @@ MindSight/
 └── README.md                      # This file
 ```
 
----
 
-## Deployment
-
-**Package for submission:**
-
-```bash
-# 1. Create submission directory
-mkdir ../24F-0727_D_AL2002
-
-# 2. Copy required files
-Copy-Item -Path "phase1","phase2","phase3","phase4","phase5","data","docs","scripts","README.md" `
-    -Destination "../24F-0727_D_AL2002/" -Recurse -Force
-
-# 3. Create ZIP archive
-Compress-Archive -Path "../24F-0727_D_AL2002" -DestinationPath "../24F-0727_D_AL2002.zip" -Force
-```
-
-**Naming convention:** `<StudentID>_D_AL2002.zip`

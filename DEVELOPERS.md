@@ -83,7 +83,7 @@ python scripts/check_outputs.py
 | `scripts/generate_phase*.py` | Deterministic notebook generators. Each rebuilds its `.ipynb` from embedded Python source. |
 | `scripts/run_all.py` | Master orchestrator. Sets `WindowsSelectorEventLoopPolicy` then generates and executes all phases sequentially. |
 | `scripts/check_outputs.py` | Post-execution verifier. Scans notebook output cells for expected keywords. |
-| `docs/` | Research deliverables. Contains the formal report submitted with coursework. |
+| `docs/` | Research deliverables. Contains the formal report detailing findings. |
 
 ---
 
