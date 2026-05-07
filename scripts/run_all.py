@@ -1,7 +1,8 @@
-import os
-import sys
 import asyncio
+import os
 import subprocess
+import sys
+
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 
@@ -40,11 +41,11 @@ def main():
         print(f"Executing {nb_path}...")
         with open(nb_path, 'r', encoding='utf-8') as f:
             nb = nbformat.read(f, as_version=4)
-        
+
         # Execute the notebook, simulating running it from its own directory
         nb_dir = os.path.dirname(nb_path)
         ep.preprocess(nb, {'metadata': {'path': nb_dir}})
-        
+
         # Save the executed notebook
         with open(nb_path, 'w', encoding='utf-8') as f:
             nbformat.write(nb, f)

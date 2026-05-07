@@ -1,8 +1,9 @@
 """Test suite for MindSight data loading and preprocessing."""
-import os
 import glob
-import pandas as pd
+import os
+
 import numpy as np
+import pandas as pd
 import pytest
 
 DATA_PATH = os.path.join(

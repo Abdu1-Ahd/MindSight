@@ -1,4 +1,4 @@
-import json, sys
+import json
 
 CHECKS = {
     'phase1/phase1_foundation.ipynb': [
