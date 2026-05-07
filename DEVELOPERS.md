@@ -68,7 +68,6 @@ python scripts/run_all.py
 **Individual phase execution:**
 
 ```bash
-python scripts/generate_phase1.py   # writes phase1/phase1_foundation.ipynb
 jupyter nbconvert --to notebook --execute phase1/phase1_foundation.ipynb --inplace
 ```
 
@@ -102,8 +101,7 @@ ruff check scripts/ tests/
 | `phase3/` | CSP layer: model workplace constraints; apply AC-3, backtracking, min-conflicts. |
 | `phase4/` | Logic layer: derive propositional rules; run forward chaining and CNF theorem prover. |
 | `phase5/` | ML layer: train Perceptron, Delta Rule, MLP, K-Means, K-Medoid from scratch in NumPy. |
-| `scripts/generate_phase*.py` | Deterministic notebook generators. Each rebuilds its `.ipynb` from embedded Python source. |
-| `scripts/run_all.py` | Master orchestrator. Sets `WindowsSelectorEventLoopPolicy` then generates and executes all phases sequentially. |
+| `scripts/run_all.py` | Master orchestrator. Sets `WindowsSelectorEventLoopPolicy` then executes all phases sequentially. |
 | `scripts/check_outputs.py` | Post-execution verifier. Scans notebook output cells for expected keywords. |
 | `docs/` | Research deliverables, architecture docs, dataset card, and evaluation methodology. |
 | `tests/` | Pytest suite covering data loading, preprocessing, and model validation. |

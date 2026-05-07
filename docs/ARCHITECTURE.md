@@ -6,7 +6,7 @@ System design documentation for MindSight.
 
 ## Pipeline Overview
 
-MindSight is a five-phase sequential pipeline. Each phase is a Jupyter notebook generated deterministically from a Python script, then executed in-process by the master runner.
+MindSight is a five-phase sequential pipeline. Each phase is a standard Jupyter notebook executed in-process by the master runner.
 
 ```mermaid
 graph TD
@@ -75,28 +75,13 @@ Comparison table (stdout)
 
 | Module | Responsibility | Input | Output |
 |:---|:---|:---|:---|
-| `scripts/generate_phase1.py` | Data loading, EDA, graph construction | 7 CSVs | `phase1_foundation.ipynb` |
-| `scripts/generate_phase2.py` | 10 search algorithm implementations | Bipartite graph (rebuilt from CSVs) | `phase2_search.ipynb` |
-| `scripts/generate_phase3.py` | CSP variables, AC-3, backtracking, min-conflicts | Survey data (rebuilt from CSVs) | `phase3_csp.ipynb` |
-| `scripts/generate_phase4.py` | Propositional rules, forward chaining, CNF | Survey data (rebuilt from CSVs) | `phase4_logic.ipynb` |
-| `scripts/generate_phase5.py` | 5 ML model implementations + comparison | Survey data (rebuilt from CSVs) | `phase5_ml.ipynb` |
-| `scripts/run_all.py` | Pipeline orchestration | All generators | All notebooks (generated + executed) |
+| `phase1_foundation.ipynb` | Data loading, EDA, graph construction | 7 CSVs | Loaded data |
+| `phase2_search.ipynb` | 10 search algorithm implementations | Bipartite graph (rebuilt from CSVs) | Search benchmarks |
+| `phase3_csp.ipynb` | CSP variables, AC-3, backtracking, min-conflicts | Survey data (rebuilt from CSVs) | CSP Solutions |
+| `phase4_logic.ipynb` | Propositional rules, forward chaining, CNF | Survey data (rebuilt from CSVs) | Logic derivations |
+| `phase5_ml.ipynb` | 5 ML model implementations + comparison | Survey data (rebuilt from CSVs) | ML Models |
+| `scripts/run_all.py` | Pipeline orchestration | All notebooks | All notebooks (executed) |
 | `scripts/check_outputs.py` | Output verification | Executed notebooks | Pass/fail report |
-
----
-
-## Generator Pattern
-
-Each phase follows the same architectural pattern:
-
-```mermaid
-graph LR
-    A["generate_phaseN.py"] -->|writes| B["phaseN/*.ipynb<br/>(nbformat JSON)"]
-    B -->|executed by| C["run_all.py<br/>(ExecutePreprocessor)"]
-    C -->|produces| D["Executed notebook<br/>(cells + outputs)"]
-```
-
-**Key constraint:** Notebooks are fully regenerated on every run. Hand-editing `.ipynb` files directly is overwritten on the next `run_all.py` invocation. All modifications must be made in the corresponding `generate_phase*.py` script.
 
 ---
 

@@ -19,22 +19,8 @@ def main():
         'phase5/phase5_ml.ipynb'
     ]
 
-    generators = [
-        'scripts/generate_phase1.py',
-        'scripts/generate_phase2.py',
-        'scripts/generate_phase3.py',
-        'scripts/generate_phase4.py',
-        'scripts/generate_phase5.py'
-    ]
-
-    # 1. Run all generators
-    print("--- Regenerating Notebooks ---")
-    for gen in generators:
-        print(f"Running {gen}...")
-        subprocess.run([sys.executable, gen], check=True)
-
-    # 2. Execute all notebooks
-    print("\n--- Executing Notebooks ---")
+    # Execute all notebooks
+    print("--- Executing Notebooks ---")
     ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
 
     for nb_path in notebooks:

@@ -10,6 +10,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 - `SKILL.md` — internal AI agent context file removed from public repository.
+- `scripts/generate_phase*.py` — removed generator scripts. The `.ipynb` files are now the primary source of truth, removing the "AI-generated" look of the repository.
 
 ---
 

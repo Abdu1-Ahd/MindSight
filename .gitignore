@@ -7,6 +7,7 @@ __pycache__/
 .env
 .env.local
 .env.*.local
+.antigravityrules
 
 # Build artifacts
 *.egg-info/

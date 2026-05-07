@@ -65,11 +65,11 @@ CSV files (7 years) → merge → prune sparse cols → drop free-text →
 label-encode → z-score normalize → train/test split → models
 ```
 
-Each phase is a Jupyter notebook generated deterministically from a Python script. The master runner regenerates and executes all phases in sequence:
+Each phase is a standard Jupyter notebook. The master runner executes all phases sequentially:
 
 ```
-scripts/generate_phase*.py  →  phase*/phase*_*.ipynb  →  executed outputs
-         (source)                  (generated)              (run_all.py)
+phase*/phase*_*.ipynb  →  executed outputs
+      (source)              (run_all.py)
 ```
 
 | Phase | Module | Purpose |
@@ -105,7 +105,7 @@ pip install -r requirements.txt
 python scripts/run_all.py
 ```
 
-This regenerates all 5 notebooks from source and executes them sequentially. Phase 5 (MLP training, 200 epochs) takes approximately 3–5 minutes.
+This executes all 5 notebooks sequentially. Phase 5 (MLP training, 200 epochs) takes approximately 3–5 minutes.
 
 ### Verify
 
@@ -145,7 +145,6 @@ MindSight/
 ├── phase4/                       # Logic: propositional rules, forward chaining, CNF
 ├── phase5/                       # ML: Perceptron, Delta Rule, MLP, K-Means, K-Medoid
 ├── scripts/
-│   ├── generate_phase[1-5].py    # Deterministic notebook generators
 │   ├── run_all.py                # Pipeline orchestrator
 │   └── check_outputs.py          # Output verification
 ├── tests/
