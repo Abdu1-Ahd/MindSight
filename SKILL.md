@@ -22,7 +22,7 @@ Academic AI pipeline (Python, Jupyter). Five sequential analytical phases applie
 
 | Constraint | Rule |
 |:---|:---|
-| ML frameworks | NumPy only. No scikit-learn, TensorFlow, PyTorch, or any ML library. |
+| ML frameworks | NumPy only. No scikit-learn, TensorFlow, PyTorch, or any ML library. Train/test split uses `np.random.RandomState(42).permutation`. |
 | Visualization | Use `matplotlib` with `Agg` backend (non-interactive). Call `matplotlib.use('Agg')` before any other matplotlib import. |
 | Data path | Always construct paths with `os.path.join('..', 'data', 'Track_D_Mental_Health')` relative to the phase directory. |
 | Event loop | Set `asyncio.WindowsSelectorEventLoopPolicy()` in `run_all.py` before any nbconvert calls. |
@@ -47,8 +47,8 @@ Academic AI pipeline (Python, Jupyter). Five sequential analytical phases applie
 2. Drop columns with > 50% missing values.
 3. Drop free-text columns.
 4. Label-encode all remaining categorical columns.
-5. Min-max scale features to [0, 1].
-6. Train/test split 80/20 → (2746, 18) train, (687, 18) test.
+5. Z-score normalize all features: `(x - mean) / (std + 1e-8)`.
+6. Train/test split 80/20 via numpy permutation → (2746, 18) train, (687, 18) test.
 
 ---
 
@@ -58,6 +58,6 @@ Academic AI pipeline (Python, Jupyter). Five sequential analytical phases applie
 |:---|:---|
 | Perceptron | Hard step activation; online weight update on misclassification only. |
 | Delta Rule | Sigmoid activation; MSE loss; batch gradient descent; lr=0.01. |
-| MLP | 1 hidden layer (64 units), ReLU; He initialization; backpropagation; 200 epochs. |
+| MLP | 2 hidden layers (16 → 8 units), ReLU + sigmoid; He initialization; backpropagation; 200 epochs. |
 | K-Means | Euclidean distance; random centroid init; convergence on centroid stability. |
 | K-Medoid | Actual data points as medoids; Manhattan distance; swap-based optimization. |

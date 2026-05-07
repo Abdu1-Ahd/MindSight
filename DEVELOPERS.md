@@ -6,16 +6,20 @@ Internal engineering reference for local setup, execution, and architectural con
 
 ## Dependencies
 
-| Package | Minimum Version | Role |
+| Package | Version Range | Role |
 |:---|:---|:---|
-| Python | 3.10 | Runtime |
-| pip | 23.0 | Package manager |
-| pandas | 2.0 | Data loading and preprocessing |
-| numpy | 1.26 | All ML and numerical computation |
-| matplotlib | 3.8 | Plot generation (non-interactive `Agg` backend) |
-| jupyter | 7.0 | Notebook server |
-| nbformat | 5.9 | Notebook serialization in generator scripts |
-| nbconvert | 7.14 | Notebook execution via `ExecutePreprocessor` |
+| Python | >= 3.10 | Runtime |
+| pip | >= 23.0 | Package manager |
+| pandas | >= 2.0 | Data loading and preprocessing |
+| numpy | >= 1.26 | All ML and numerical computation |
+| matplotlib | >= 3.8 | Plot generation (non-interactive `Agg` backend) |
+| jupyter | >= 1.0 | Notebook server |
+| nbformat | >= 5.9 | Notebook serialization in generator scripts |
+| nbconvert | >= 7.14 | Notebook execution via `ExecutePreprocessor` |
+
+**Dev dependencies** (linting, testing): see `requirements-dev.txt`.
+
+> **No external ML frameworks.** All model implementations use NumPy only. The train/test split is implemented as a NumPy permutation — no scikit-learn dependency.
 
 ---
 
@@ -35,10 +39,16 @@ cd MindSight
 scripts\setup_env.bat
 
 # Linux / macOS
-pip install pandas numpy matplotlib jupyter nbformat nbconvert
+pip install -r requirements.txt
 ```
 
-**3. Verify dataset files are present:**
+**3. Install dev tools (optional):**
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+**4. Verify dataset files are present:**
 
 ```bash
 ls data/Track_D_Mental_Health/
@@ -68,6 +78,18 @@ jupyter nbconvert --to notebook --execute phase1/phase1_foundation.ipynb --inpla
 python scripts/check_outputs.py
 ```
 
+**Run tests:**
+
+```bash
+pytest tests/ -v
+```
+
+**Lint:**
+
+```bash
+ruff check scripts/ tests/
+```
+
 ---
 
 ## Directory → Architectural Function Matrix
@@ -83,7 +105,10 @@ python scripts/check_outputs.py
 | `scripts/generate_phase*.py` | Deterministic notebook generators. Each rebuilds its `.ipynb` from embedded Python source. |
 | `scripts/run_all.py` | Master orchestrator. Sets `WindowsSelectorEventLoopPolicy` then generates and executes all phases sequentially. |
 | `scripts/check_outputs.py` | Post-execution verifier. Scans notebook output cells for expected keywords. |
-| `docs/` | Research deliverables. Contains the formal report detailing findings. |
+| `docs/` | Research deliverables, architecture docs, dataset card, and evaluation methodology. |
+| `tests/` | Pytest suite covering data loading, preprocessing, and model validation. |
+
+For detailed architecture with data flow diagrams, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ---
 
@@ -107,6 +132,6 @@ This line must appear before any `nbconvert` import or execution call.
 
 The following repository settings require GitHub admin access and cannot be automated via file commits:
 
-1. **Branch protection on `main`:** Require PR, 1 CODEOWNERS approval, strict status checks, linear history, signed commits, no admin bypass.
+1. **Branch protection on `master`:** Require PR, 1 CODEOWNERS approval, strict status checks, linear history, signed commits, no admin bypass.
 2. **Custom label taxonomy:** Delete default labels. Create scoped labels per `.github/LABELS.md`.
 3. **Semantic Release:** Configure via `.releaserc.json` or GitHub Action once a CI workflow is added.

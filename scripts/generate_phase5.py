@@ -14,7 +14,6 @@ import os, glob
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 
 path = os.path.join('..', 'data', 'Track_D_Mental_Health')
 
@@ -92,11 +91,17 @@ for c in X.columns:
     mu, sigma = X[c].mean(), X[c].std()
     X[c] = (X[c] - mu) / (sigma + 1e-8)
 
-# --- Convert to numpy, split ---
+# --- Convert to numpy, split (pure numpy — no sklearn) ---
 X_np = X.values.astype(np.float64)
 y_np = df.loc[X.index, 'treatment'].values.astype(np.float64)
 
-X_train, X_test, y_train, y_test = train_test_split(X_np, y_np, test_size=0.2, random_state=42)
+rng_split = np.random.RandomState(42)
+n_samples = len(X_np)
+indices   = rng_split.permutation(n_samples)
+split_idx = int(n_samples * 0.8)
+train_idx, test_idx = indices[:split_idx], indices[split_idx:]
+X_train, X_test = X_np[train_idx], X_np[test_idx]
+y_train, y_test = y_np[train_idx], y_np[test_idx]
 
 print(f'Features: {X.shape[1]} ({len(cat_cols)} categorical + {len(num_cols)} numerical)')
 print(f'X_train: {X_train.shape}, X_test: {X_test.shape}')

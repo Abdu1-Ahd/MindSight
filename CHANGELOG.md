@@ -10,6 +10,33 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.1.0] - 2026-05-07
+
+### Added
+- `docs/ARCHITECTURE.md` — system design documentation with Mermaid data flow diagrams, module responsibility matrix, and phase dependency graph.
+- `docs/DATASET.md` — formal dataset card documenting OSMI source, biases, preprocessing pipeline, and ethical considerations.
+- `docs/EVALUATION.md` — evaluation methodology with benchmark results, baseline comparisons, hyperparameter justifications, and ablation analysis.
+- `tests/test_pipeline.py` — pytest suite covering data loading (7 CSVs), preprocessing (no NaN, binary target), and model validation (above-baseline accuracy, convergence).
+- `.github/workflows/ci.yml` — three-stage CI pipeline: lint (ruff) → test (pytest) → full pipeline execution.
+- `Dockerfile` — containerized reproducibility with Python 3.10-slim.
+- `pyproject.toml` — ruff linter and pytest configuration.
+- `requirements-dev.txt` — dev dependencies (pytest, ruff).
+- `.python-version` — pin Python 3.10 for reproducibility.
+
+### Changed
+- **README.md:** Complete rewrite. Surfaces actual benchmark numbers, dataset description, architecture overview, design decisions, limitations, and reproducibility steps.
+- **DEVELOPERS.md:** Updated with references to new documentation, test suite, and linting.
+- **SKILL.md:** Fixed inaccuracies (z-score not min-max, 2-hidden-layer MLP not 1-layer).
+- **requirements.txt:** Pinned dependency version ranges. Removed `scikit-learn` and `notebook`.
+
+### Removed
+- `sklearn.model_selection.train_test_split` dependency in Phase 5. Replaced with pure NumPy permutation-based split.
+
+### Fixed
+- `requirements.txt` listed `scikit-learn` while README claimed "no ML frameworks" — resolved by replacing with NumPy implementation.
+
+---
+
 ## [1.0.0] - 2026-05-07
 
 ### Added
@@ -30,5 +57,6 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-[Unreleased]: https://github.com/Abdu1-Ahd/MindSight/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/Abdu1-Ahd/MindSight/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/Abdu1-Ahd/MindSight/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Abdu1-Ahd/MindSight/releases/tag/v1.0.0
