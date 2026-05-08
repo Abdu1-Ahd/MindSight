@@ -36,7 +36,7 @@ def main():
             nbformat.write(nb, f)
         print(f"  -> Saved {nb_path}")
 
-    print("\nAll phases completed successfully without ZMQ socket errors!")
+    print("\nAll phases completed successfully!")
 
 if __name__ == '__main__':
     main()

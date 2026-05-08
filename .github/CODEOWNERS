@@ -2,23 +2,23 @@
 # Syntax: <path pattern> <@owner>
 # Replace @<username> with the actual GitHub username or team handle.
 
-# CI/CD and GitHub configuration — require infra review on all pipeline changes
-.github/                    @Abdu1-Ahd
-.github/workflows/          @Abdu1-Ahd
+# CI/CD and GitHub configuration
+.github/                    @Abdu1-Ahd @abdulrahim-subh
+.github/workflows/          @Abdu1-Ahd @abdulrahim-subh
 
-# Phase notebooks and generators
-phase1/                     @Abdu1-Ahd
-phase2/                     @Abdu1-Ahd
-phase3/                     @Abdu1-Ahd
-phase4/                     @Abdu1-Ahd
-phase5/                     @Abdu1-Ahd
-scripts/                    @Abdu1-Ahd
+# Phase notebooks
+phase1/                     @Abdu1-Ahd @abdulrahim-subh
+phase2/                     @Abdu1-Ahd @abdulrahim-subh
+phase3/                     @Abdu1-Ahd @abdulrahim-subh
+phase4/                     @Abdu1-Ahd @abdulrahim-subh
+phase5/                     @Abdu1-Ahd @abdulrahim-subh
+scripts/                    @Abdu1-Ahd @abdulrahim-subh
 
 # Documentation
-docs/                       @Abdu1-Ahd
-README.md                   @Abdu1-Ahd
-CHANGELOG.md                @Abdu1-Ahd
-DEVELOPERS.md               @Abdu1-Ahd
+docs/                       @Abdu1-Ahd @abdulrahim-subh
+README.md                   @Abdu1-Ahd @abdulrahim-subh
+CHANGELOG.md                @Abdu1-Ahd @abdulrahim-subh
+DEVELOPERS.md               @Abdu1-Ahd @abdulrahim-subh
 
-# Data files — changes here affect all downstream phases
-data/                       @Abdu1-Ahd
+# Data files
+data/                       @Abdu1-Ahd @abdulrahim-subh

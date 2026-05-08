@@ -194,6 +194,13 @@ See [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) for branch strategy, co
 
 ---
 
+## Authors
+
+* **Abdu1-Ahd** — [GitHub Profile](https://github.com/Abdu1-Ahd)
+* **Abdul Rahim Subh** — [GitHub Profile](https://github.com/abdulrahim-subh)
+
+---
+
 ## License
 
 [MIT](LICENSE)
