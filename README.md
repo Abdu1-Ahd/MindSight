@@ -206,4 +206,5 @@ See [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) for branch strategy, co
 [MIT](LICENSE)
 
 
-<!-- dev-sync: d44659f3 | ts: 2026-06-27T10:14:23+0500 -->
+
+<!-- dev-sync: 9bb86e42 | ts: 2026-06-27T10:09:42+0500 -->
