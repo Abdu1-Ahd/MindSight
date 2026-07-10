@@ -191,3 +191,5 @@ class TestModels:
                 break
             centroids = new_c
         assert it < 99, "K-Means did not converge within 100 iterations"
+
+# session:24b485fc
