@@ -54,3 +54,5 @@ pip audit
 ```
 
 Pin all dependencies to exact versions in `requirements.txt` for reproducible, auditable builds.
+
+<!-- session:3100d37fb -->

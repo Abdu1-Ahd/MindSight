@@ -116,3 +116,5 @@ The Delta Rule, being a simple linear model with continuous output, finds the op
 | No feature importance analysis | Which of the 18 features drive the Delta Rule's accuracy is not investigated. |
 | Purity as clustering metric | Purity is a weak metric that ignores cluster homogeneity. Adjusted Rand Index or Normalized Mutual Information would be more informative. |
 | No confidence intervals | Single-run accuracy numbers without error bars limit statistical claims. |
+
+<!-- session:dd9fb4a0 -->
