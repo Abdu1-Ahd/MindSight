@@ -66,3 +66,5 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 [Unreleased]: https://github.com/Abdu1-Ahd/MindSight/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/Abdu1-Ahd/MindSight/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Abdu1-Ahd/MindSight/releases/tag/v1.0.0
+
+<!-- session:77ffa919 -->
